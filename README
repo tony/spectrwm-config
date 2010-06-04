@@ -1,0 +1,25 @@
+Tony Narlock's scrot wm configuration (skiquel @ gmail)
+
+Version: scrotwm 0.9.23
+
+For use with conky-cli (Conky compiled without X)
+
+Includes conky command line file.
+
+
+
+Font info:
+
+  ArchLinux:
+  # pacman -S terminus-font
+
+  Then go to vim /etc/X11/xorg.conf and add your font dir to be scanned:
+
+  Section "Files"
+    FontPath     "/usr/share/fonts/local"
+  EndSection
+
+  Ubuntu:
+  # sudo apt-get install xfonts-terminus
+ 
+
