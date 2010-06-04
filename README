@@ -4,7 +4,7 @@ Version: scrotwm 0.9.23
 
 For use with conky-cli (Conky compiled without X)
 
-Includes conky command line file.
+Includes conky command line file. The conky script included will work with mpd (music player daemon) and your cpu/mem stats.
 
 
 
