@@ -4,5 +4,23 @@ update_interval 2
 total_run_times 0
 use_spacer none
 
+
 TEXT
-$mpd_smart :: ${cpu cpu1}% / ${cpu cpu2}%  ${loadavg 1} ${loadavg 2 3} :: ${acpitemp}c :: $memperc% ($mem) :: ${downspeed eth0}K/s ${upspeed eth0}K/s :: ${time %a %b %d %I:%M%P}
+${if_mpd_playing}
+${mpd_status} ${mpd_artist} - ${mpd_title} (${mpd_elapsed}/${mpd_length})
+${endif}\
+cpu ${cpu cpu}% | ${cpu cpu2}% - mem $memperc% ($mem) -\
+${if_existing /sys/class/thermal/thermal_zone0/temp}\
+ temp ${acpitemp}c -d\
+${endif}\
+${if_existing /proc/net/route eth0}\
+ eth0\
+${if_match ${downspeedf eth0} > 0} ↓${downspeed eth0}/s ${endif}\
+${if_match ${upspeedf eth0} > 0} ↑${upspeed eth0}/s ${endif}\
+${endif}\
+${if_existing /proc/net/route wlan0}\
+wlan0 \
+${if_match ${downspeedf wlan0} > 0} ↓${downspeed wlan0}/s ${endif}\
+${if_match ${upspeedf wlan0} > 0} ↑${upspeed wlan0}/s ${endif}\
+${endif}\
+- ${time %m/%d/%Y %l:%M%p}
