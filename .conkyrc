@@ -8,6 +8,6 @@ Up: ${uptime_short} | \
 ${if_match "${acpitemp}" > "0"}Temp:${acpitemp}C | ${endif}\
 ${if_match "${battery_percent}" != "0"}Batt: ${battery_short} |${endif}\
 RAM:$memperc% | CPU:${cpu}% | \
-${if_up bge0}bge0: ${downspeedf bge0} kB/s down ${upspeedf bge0} kB/s up | ${endif}\
-${if_up wlan0}wlan0: ${downspeedf wlan0} kB/s down ${upspeedf wlan0} kB/s up | ${endif}\
-${time %R %a, %b %d-%Y}
+${if_up bge0}bge0: ${downspeedf bge0} kB/s down ${upspeedf bge0} kB/s up |${endif} \
+${if_up wlan0}wlan0: ${downspeedf wlan0} kB/s down ${upspeedf wlan0} kB/s up |${endif} \
+${time %a %l:%m:%S %p  %B %d, %Y}
